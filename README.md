@@ -22,6 +22,8 @@ ActionAI는 jetson보드에서만 실행할 수 있었는데 이 코드를 이�
 - `python demo/picture_demo.py` to run the picture demo.
 - `python demo/web_demo.py` to run the web demo.
 
+## ActionAI 코드 실행
+- python demo/actionai_demo.py --video {Video PATH}
 
 
 Download link:
