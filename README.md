@@ -1,13 +1,12 @@
 ## Introduction
-Multi Person PoseEstimation By PyTorch
+Multi Person PoseEstimation By PyTorch를 수정하여 ActionAI코드와 결합하였습니다.  
+ActionAI는 jetson보드에서만 실행할 수 있었는데 이 코드를 이용하면 PC에서도 실행이 가능합니다.
 
 ## Results
 
-<p align="left">
-<img src="https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation/blob/master/readme/result.gif", width="720">
-</p>
+.
 
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
+[![License](https://img.shields.io/github/license/smellslikeml/ActionAI)](https://opensource.org/licenses/MIT) 
 
 ## Require
 1. [Pytorch](http://pytorch.org/)
@@ -18,25 +17,20 @@ Multi Person PoseEstimation By PyTorch
 ## Demo
 - Download [converted pytorch model](https://www.dropbox.com/s/ae071mfm2qoyc8v/pose_model.pth?dl=0).
 - Compile the C++ postprocessing: `cd lib/pafprocess; sh make.sh` 
+- swig -python -c++ pafprocess.i 
+- python setup.py build_ext --inplace
 - `python demo/picture_demo.py` to run the picture demo.
 - `python demo/web_demo.py` to run the web demo.
 
-## Evalute
-- `python evaluate/evaluation.py` to evaluate the model on coco val2017 dataset.
-- It should have `mAP 0.653` for the rtpose, previous rtpose have `mAP 0.577` because we do left and right flip for heatmap and PAF for the evaluation. 
-c
-### Main Results
 
-| model name| mAP |  Inference Time | 
-| :---------: | :---------: |:---------: |
-|[original rtpose]   | 0.653 |-|
 
 Download link:
 [rtpose](https://www.dropbox.com/s/ae071mfm2qoyc8v/pose_model.pth?dl=0)
 
 ## Development environment
 
-The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. The code is developed and tested using 4 1080ti GPU cards. Other platforms or GPU cards are not fully tested.  
+The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. The code is developed and tested using 4 1080ti GPU cards. Other platforms or GPU cards are not fully tested.   
+저는 python3.7.10 on Ubuntu 18.04 RTX 3080에서 실행하였습니다. 
 
 ## Quick start
 
@@ -79,9 +73,6 @@ ${DATA_ROOT}
 - training architecture
 ![Teaser?](https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation/blob/master/readme/training_structure.png)
 
-## Contributions
-
-All contributions are welcomed. If you encounter any issue (including examples of images where it fails) feel free to open an issue.
 
 ## Citation
 Please cite the paper in your publications if it helps your research: 
@@ -92,4 +83,6 @@ Please cite the paper in your publications if it helps your research:
       booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
       year = {2017}
       }
-# ActionAI_PC
+# REFERENCE
+https://github.com/smellslikeml/ActionAI, ActionAI   
+https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation
