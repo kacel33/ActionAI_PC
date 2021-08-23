@@ -28,6 +28,8 @@ parser.add_argument('opts',
                     help="Modify config options using the command-line",
                     default=None,
                     nargs=argparse.REMAINDER)
+parser.add_argument('--video', help = 'video path',
+                    default=int(0), type=str)
 args = parser.parse_args()
 
 # update config file
